@@ -103,10 +103,10 @@ while ComeOut and fichas > 0:
             else:
                 print("A soma deu {0}".format(soma))
                 point = True
-                print("__________________________________________________")
+                print("_________________________________________________")
                 print("Você está na fase do Point")
                 print("Você tem {0} fichas".format(fichas))                
-                p2 = input("Você quer mudar o tipo de aposta? Se sim, qual?")
+                p2 = input("Você quer mudar o tipo de aposta? Se sim, qual?\n")
                 dp1 = random.randint(1,6)
                 dp2 = random.randint(1,6)
                 somap = dp1 + dp2
