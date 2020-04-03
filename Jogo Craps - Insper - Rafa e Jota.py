@@ -38,26 +38,33 @@ while ComeOut and fichas > 0:
                 ComeOut = True
         
         if x == 'Any Craps':
+            print("Você tem {0} fichas".format(fichas))
+            apostac = int(input("Quantas fichas quer apostar?"))
+            dc1 = random.randint(1,6)
+            dc2 = random.randint(1,6)
+            sc = dc1 + dc2
 
-            d1 = random.randint(1,6)
-            d2 = random.randint(1,6)
-            soma = d1 + d2
-
-            aposta = int (input("Quantas fichas quer apostar?\n"))
-
-            print("A soma deu {0} ".format(soma))
-            if soma != 2 or soma != 3 or soma != 12:
-                fichas = (fichas) - (aposta)
+            if sc == 2:
+                print("A soma deu {0}" .format(sc))
+                fichas = fichas + (7)*(apostac)
                 print("Você tem {0} fichas".format(fichas))
-
                 ComeOut = True
-            else:
-                fichas = (fichas) + ((7)*(aposta))
-
+            if sc == 3:
+                print("A soma deu {0}" .format(sc))
+                fichas = fichas + (7)*(apostac)
                 print("Você tem {0} fichas".format(fichas))
-
                 ComeOut = True
-        
+            if sc == 12:
+                print("A soma deu {0}" .format(sc))
+                fichas = fichas + (7)*(apostac)
+                print("Você tem {0} fichas".format(fichas))
+                ComeOut = True
+            if (sc == 4 or sc == 5 or sc == 6 or sc == 7 or sc == 8 or sc == 9 or sc == 10 or sc == 11):
+                print("A soma deu {0}".format(sc))
+                fichas = fichas - apostac
+                print("Você tem {0} fichas".format(fichas))
+                ComeOut = True
+
         if x == 'Field':           
             print("Você tem {0} fichas".format(fichas))
             apostaf = int(input("Quantas fichas quer apostar?"))
