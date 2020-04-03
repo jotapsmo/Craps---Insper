@@ -95,7 +95,7 @@ while ComeOut and fichas > 0:
             soma = d1 + d2
 
             if soma == 7 or 11:
-                print("A soma deu {0}  ".format(soma))
+                print("A soma deu {0} ".format(soma))
                 fichas = fichas + aposta
                 print("Você tem {0} fichas".format(fichas))
                 ComeOut = True
