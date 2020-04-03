@@ -18,7 +18,7 @@ while ComeOut and fichas > 0:
         
         if x == 'Twelve':
             print("Você tem {0} fichas".format(fichas))
-            aposta = int(input("Quantas fichas quer apostar?"))
+            aposta = int(input("Quantas fichas quer apostar?\n"))
             d1 = random.randint(1,6)
             d2 = random.randint(1,6)
             soma = d1 + d2
