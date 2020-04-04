@@ -1,3 +1,5 @@
+#Exercício Problema 1
+#João Pedro Marques e Rafael Madarás
 import random
 
 fichas = 1000
@@ -7,11 +9,12 @@ ComeOut = True
 while ComeOut and fichas > 0:
     print("__________________________________________________")
     print("Bem-vindo ao jogo Craps Insper!!")
-    print("Instrução: Utilize letra maiúscula para responder! ")
-    
+    print("Instruções: Utilize letra maiúscula para responder!")
+    print("Modo de escrita: Sim, Não, Apostar, Sair do jogo,")
+    print("Twelve, Pass Line Bet, Any Bet, Field.")
     um = input("Quer apostar ou sair do jogo?\n")
 
-    if um == "sair do jogo":
+    if um == "Sair do jogo":
         break
     else:
         print("Você está na fase Come Out.")
@@ -39,7 +42,7 @@ while ComeOut and fichas > 0:
         
         if x == 'Any Craps':
             print("Você tem {0} fichas".format(fichas))
-            apostac = int(input("Quantas fichas quer apostar?"))
+            apostac = int(input("Quantas fichas quer apostar?\n"))
             dc1 = random.randint(1,6)
             dc2 = random.randint(1,6)
             sc = dc1 + dc2
@@ -67,7 +70,7 @@ while ComeOut and fichas > 0:
 
         if x == 'Field':           
             print("Você tem {0} fichas".format(fichas))
-            apostaf = int(input("Quantas fichas quer apostar?"))
+            apostaf = int(input("Quantas fichas quer apostar?\n"))
             df1 = random.randint(1,6)
             df2 = random.randint(1,6)
             sf = df1 + df2
@@ -97,33 +100,37 @@ while ComeOut and fichas > 0:
                 ComeOut = True
 
         if x == 'Pass Line Bet':    
-            print("Você tem {0} fichas".format(fichas))   
-            aposta = int (input("Quantas fichas quer apostar?\n"))
+            
 
             d1 = random.randint(1,6)
             d2 = random.randint(1,6)
 
             soma = d1 + d2
+            print("Você tem {0} fichas".format(fichas))   
+            aposta = int (input("Quantas fichas quer apostar?\n"))
+            XP=[7,11]
 
-            if soma == 7 or 11:
+            if soma in XP :
                 print("A soma deu {0} ".format(soma))
                 fichas = fichas + aposta
                 print("Você tem {0} fichas".format(fichas))
                 ComeOut = True
-            
-            if soma == 2 or 3 or 12:
+            NP = [2,3,12]
+            if soma in NP:
                 print("A soma deu {0} ".format(soma))
                 fichas = fichas - aposta
                 print("Você tem {0} fichas".format(fichas))
                 ComeOut = True
             
-            else:
-                print("A soma deu {0}".format(soma))
-                point = True
+            banana = [4,5,6,8,9,10,11]
+            if soma in banana:
+                print("A soma deu {0}".format(soma))                
                 print("_________________________________________________")
-                print("Você está na fase do Point")
-                               
+                print("_________________________________________________")
+                print("Você está na fase do Point!")
+                                              
                 p2 = input("Você quer mudar o tipo de aposta? Se sim, qual?\n")
+                point = True
                 dp1 = random.randint(1,6)
                 dp2 = random.randint(1,6)
                 somap = dp1 + dp2
@@ -153,16 +160,19 @@ while ComeOut and fichas > 0:
                     d1 = random.randint(1,6)
                     d2 = random.randint(1,6)
                     soma = d1 + d2
-                    if soma == 5 or 6 or 7 or 8:
+                    morango = [5,6,7,8]
+                    if soma in morango:
                         print("A soma deu {0} ".format(soma))
                         fichas = fichas - aposta
                         print("Você tem {0} fichas".format(fichas))
                         ComeOut = True
-                    if soma == 3 or 4 or 9 or 10 or 11:
+                    abacaxi = [3,4,9,10,11]
+                    if soma in abacaxi:
                         print("A soma deu {0} ".format(soma))
                         fichas = fichas + aposta
                         print("Você tem {0} fichas".format(fichas))
                         ComeOut = True
+                     
                     if soma == 2:
                         print("A soma deu {0} ".format(soma))
                         fichas = fichas + 2*aposta
@@ -180,29 +190,34 @@ while ComeOut and fichas > 0:
                     dp1 = random.randint(1,6)
                     dp2 = random.randint(1,6)
                     somap = dp1 + dp2
-                        
-                    if somap == 2 or 3 or 12:
+                    lista = [2,3,12]   
+                    if somap in lista:
                         print("A soma deu {0} ".format(somap))
                         fichas = fichas + 7*aposta
                         print("Você tem {0} fichas".format(fichas))                    
                         ComeOut = True
-                    else:
+                    if somap not in lista:
                         print("A soma deu {0} ".format(soma))
                         fichas = fichas - aposta
                         print("Você tem {0} fichas".format(fichas))
                         ComeOut = True            
 
                 else:                                   
+                    point = True
                     while point:
                         if somap == 7:
+                            point = False
                             print("A soma deu {0}".format(somap))
                             fichas = fichas - aposta
                             print("Você tem {0} fichas".format(fichas))
+                            
                             ComeOut = True
                         if somap == soma:
+                            point = False
                             print("A soma deu {0}".format(somap))
                             fichas = fichas + aposta
                             print("Você tem {0} fichas".format(fichas))
+                            
                             ComeOut = True
                         else:
                             point = True
