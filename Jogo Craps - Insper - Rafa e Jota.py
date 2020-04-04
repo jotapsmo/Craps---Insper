@@ -1,5 +1,6 @@
 #Exercício Problema 1
 #João Pedro Marques e Rafael Madarás
+#Engenharia Primeiro Semestre - 1A
 import random
 
 fichas = 1000
@@ -209,15 +210,13 @@ while ComeOut and fichas > 0:
                             point = False
                             print("A soma deu {0}".format(somap))
                             fichas = fichas - aposta
-                            print("Você tem {0} fichas".format(fichas))
-                            
+                            print("Você tem {0} fichas".format(fichas))                           
                             ComeOut = True
                         if somap == soma:
                             point = False
                             print("A soma deu {0}".format(somap))
                             fichas = fichas + aposta
                             print("Você tem {0} fichas".format(fichas))
-                            
                             ComeOut = True
                         else:
                             point = True
